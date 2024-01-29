@@ -10,25 +10,34 @@ import { MyVideoConference } from './components/MyVideoConference';
 import { useEffect } from 'react';
 import { getMeetToken } from './services/api';
 import Cookies from 'js-cookie';
+import { Navbar } from './components/navbar/Navbar';
+import { HeroComponent } from './components/heroComponent/HeroComponent';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const serverURL = import.meta.env.VITE_SERVER_URL 
 
 function App() {
-
+  
+  const { user, isAuthenticated, isLoading } = useAuth0();
+  
   useEffect(()=>{
+    
+    if(isAuthenticated ){
     const setMeetToken=async()=>{
       
-     const token= await getMeetToken()
+     const token= await getMeetToken("fmRoom",user?.name)
      Cookies.set('meetToken',token.data,{ expires: 1 })
     }
     setMeetToken()
-    
-  },[])
+  }
+  },[isAuthenticated])
 
   return (
     <>
-     <h1 style={{color:"#CBC7F8",textAlign:"center"}}>Swift Meet</h1>
-     <LiveKitRoom
+    <Navbar/>
+
+    {isAuthenticated ?
+      <LiveKitRoom
       video={true}
       audio={true}
       token={Cookies.get('meetToken')}
@@ -40,7 +49,17 @@ function App() {
       <MyVideoConference />
       <RoomAudioRenderer />
       <ControlBar />
-    </LiveKitRoom>
+    </LiveKitRoom> 
+    : 
+  <>
+  <div className='d-flex justify-content-center'>
+    <HeroComponent/>
+  </div>
+  <div className='d-flex justify-content-center'>
+    <button className="genralButtons">Get started</button>
+  </div>
+  </>
+}
     </>
   )
 }

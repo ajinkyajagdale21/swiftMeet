@@ -1,0 +1,15 @@
+.navbarContainer{
+  padding: 0.5rem 2rem;
+}
+.loginBtn{
+  background-color: black;
+  color: white;
+  border: none;
+  margin: 0rem 1rem;
+  border-radius: 0.5rem;
+  padding: 0.3rem 1rem;
+}
+.navbarBrand{
+    font-size: x-large;
+    font-weight: 900;
+}

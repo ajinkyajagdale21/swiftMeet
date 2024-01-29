@@ -1,7 +1,11 @@
 import axios from "axios"
 
-export const getMeetToken=()=>{
+export const getMeetToken=(room,user)=>{
    
-    const res = axios.get(`http://localhost:3000/getToken`)
+    const params={
+        "roomName":room,
+        "participantName":user
+    }
+    const res = axios.get(`http://localhost:3000/getToken`,{params})
     return res
 }

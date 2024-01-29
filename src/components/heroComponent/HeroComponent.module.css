@@ -1,0 +1,22 @@
+.heroContainer{
+  /* background-color: #D3C8DD;
+  color: black;
+  width: 85%;
+  height: 40vh;
+  margin: 2rem 0rem;
+  border-radius: 1rem; */
+  display: flex;
+  width: 80%;
+  align-items: center;
+}
+.handImg{
+  width: 50%;
+}
+.heroText{
+  font-size: 1.25rem;
+}
+@media only screen and (max-width: 600px) {
+  .heroContainer{
+    flex-direction: column;
+  }
+}
