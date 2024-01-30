@@ -18,5 +18,6 @@
 @media only screen and (max-width: 600px) {
   .heroContainer{
     flex-direction: column;
+    margin-top: 4rem;
   }
 }

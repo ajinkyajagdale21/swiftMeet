@@ -1,5 +1,5 @@
 import React from 'react'
-import { useTracks } from "@livekit/components-react";
+import { DisconnectButton, useTracks } from "@livekit/components-react";
 import { Track } from 'livekit-client';
 import {
   GridLayout,
@@ -18,6 +18,7 @@ export const MyVideoConference = () => {
   return (
     <GridLayout tracks={tracks} style={{ height: 'calc(100vh - var(--lk-control-bar-height))' }}>
     <ParticipantTile />
-  </GridLayout>
+    {/* <DisconnectButton /> */}
+    </GridLayout>
   )
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import style from '../navbar/Navbar.module.css'
 import { useAuth0 } from '@auth0/auth0-react';
 
-export const Navbar = () => {
+export const Navbar = ({setMeetingView}) => {
   
 const { isAuthenticated,loginWithRedirect,logout } = useAuth0();
     
@@ -10,7 +10,7 @@ const { isAuthenticated,loginWithRedirect,logout } = useAuth0();
     <div className={style.navbarContainer}>
         <nav className="navbar navbar-expand-lg">
     <div className="container-fluid">
-    <div className={`${style.navbarBrand}`} >Swift MeetUp</div>
+    <div className={`${style.navbarBrand}`} onClick={()=>setMeetingView(false)}>Swift MeetUp</div>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
