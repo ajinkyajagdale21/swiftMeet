@@ -6,6 +6,6 @@ export const getMeetToken=(room,user)=>{
         "roomName":room,
         "participantName":user
     }
-    const res = axios.get(`http://localhost:3000/getToken`,{params})
+    const res = axios.get(`https://swift-meet-backend.vercel.app/getToken`,{params})
     return res
 }
