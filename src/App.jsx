@@ -44,7 +44,7 @@ function App() {
                             video={true}
                             audio={true}
                             token={Cookies.get("meetToken")}
-                            connectOptions={{ autoSubscribe: false }}
+                            // connectOptions={{ autoSubscribe: false }}
                             serverUrl={serverURL}
                             data-lk-theme="default"
                             style={{ height: "100vh" }}
